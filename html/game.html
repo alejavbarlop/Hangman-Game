@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <mete http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Juego del Ahorcado</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Juego del Ahorcado</h1>
+      <p>
+        Intenta encontrar la palabra oculta escribiendo una letra.
+      </p>
+      <div class="game-box">
+        <svg class="figure">
+          <!-- Stand -->
+          <line x1="25%" y1="5%" x2="65%" y2="5%"/>
+          <line x1="65%" y1="5%" x2="65%" y2="20%"/>
+          <line x1="25%" y1="5%" x2="25%" y2="95%"/>
+          <line x1="5%" y1="95%" x2="45%" y2="95%"/>
+
+          <!-- Head -->
+          <circle r="10%" cx="65%" cy="30%" class="body-part"/>
+
+          <!-- Body -->
+          <line x1="65%" y1="40%" x2="65%" y2="60%" class="body-part"/>
+
+          <!-- Arms -->
+          <line x1="50%" y1="40%" x2="65%" y2="50%" class="body-part"/>
+          <line x1="80%" y1="40%" x2="65%" y2="50%" class="body-part"/>
+
+          <!-- Legs -->
+          <line x1="65%" y1="60%" x2="80%" y2="70%" class="body-part"/>
+          <line x1="65%" y1="60%" x2="50%" y2="70%" class="body-part"/>
+        </svg>
+        <div class="content">
+          <ul id="word" class="word"></ul>
+          <div id="invalid" class="invalid">
+            <h2>Incorrectas :</h2>
+            <p></p>
+          </div>
+        </div>
+        <div id="popup" class="popup"></div>
+        <div id="final-message" class="final-message">
+          <p id="message" class="message"></p>
+          <button id="play" class="play">Jugar de Nuevo</button>
+        </div>
+        <div id="notification" class="notification">
+          <p>Ya has escrito esta letra</p>
+        </div>
+      </div>
+    </div>
+    <script src="../js/script.js"></script>
+  </body>
+</html>

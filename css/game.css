@@ -1,0 +1,83 @@
+/* Index and core style */
+*{
+	margin: 0;
+	padding: 0;
+	background: #F3F5FC;
+	font-family: 'Inter';
+	font-weight: 100;
+	font-size: 15px;
+	line-height: 150%;
+	box-sizing: border-box;
+}
+
+.logo-position {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 16px;
+}
+
+.select-section {
+	justify-items: center;
+	padding-top: 10em;
+}
+
+.action-buttons {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 16px 0px;
+	border-radius: 32px;
+}
+
+.btn {
+	width: 100%;
+	max-width: 260px;
+	border-radius: 16px;
+	padding: 16px;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.btn.btn-primary {
+	background: #05186d;
+	border: 1px solid #05186d;
+	color: #fff;
+	text-align: center;
+	padding: 2em;
+}
+
+.btn.btn-secondary {
+	background: #fff;
+	border: 1px solid #05186d;
+	color: #05186d;
+	text-align: center;
+}
+
+/* Game style for svg */
+
+.game-container {
+	padding: 1em 8em;
+	position: relative;
+	margin: auto;
+	height: 350px;
+	width: 450px;
+}
+
+.figure-container {
+	fill: transparent;
+	stroke: #000;
+	stroke-width: 4px;
+	stroke-linecap: round;
+}
+
+.figure-part {
+	display: none;
+}
