@@ -1,4 +1,4 @@
-var wordsList = ['ALURA', 'AHORCADO', 'ORACLE', 'HTML', 'CSS', 'JAVASCRIPT'];
+var wordsList = ['alura', 'ahorcado', 'oracle', 'html', 'css', 'javascript'];
 const word = document.getElementById('word');
 const invalid = document.getElementById('invalid');
 const invalidLettersText = document.querySelector('#invalid p');
@@ -70,12 +70,7 @@ function check(ok) {
   const character = ok.key;
 
   // Handle keyboard okents
-  if (
-    !popup.classList.contains('visible') &&
-    !notification.classList.contains('visible') &&
-    ok.keyCode >= 65 &&
-    ok.keyCode <= 90
-  ) {
+  if (!popup.classList.contains('visible') && !notification.classList.contains('visible') && ok.keyCode >= 65 && ok.keyCode <= 90) {
     if (selectedWord.includes(character)) {
       if (validLetters.includes(character)) {
         displayNotification();
