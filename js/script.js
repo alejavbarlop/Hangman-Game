@@ -1,4 +1,4 @@
-var wordsList = ['alura', 'ahorcado', 'oracle', 'html', 'css', 'javascript'];
+var wordsList = ['ALURA', 'AHORCADO', 'ORACLE', 'HTML', 'CSS', 'JAVASCRIPT'];
 const word = document.getElementById('word');
 const invalid = document.getElementById('invalid');
 const invalidLettersText = document.querySelector('#invalid p');
@@ -8,20 +8,13 @@ const message = document.getElementById('message');
 const playButton = document.getElementById('play');
 const notification = document.getElementById('notification');
 const bodyParts = document.getElementsByClassName('body-part');
-
-
-// Word that is selected to play
 let selectedWord = null;
-// Stores the count of no.of invalidly typed letters
 let invalidCount = 0;
-// Correct letters typed by the player
 const validLetters = [];
-// invalid letters typed by the player
 const invalidLetters = [];
 
-// Select a word randomly from wordsList and initialize in the DOM
 function randomWord() {
-  selectedWord = wordsList[Math.floor(Math.random() * wordsList.length)];
+  selectedWord = wordsList[Math.floor(Math.random() * wordsList.length)].toUpperCase();
   for (let i = 0; i < selectedWord.length; i++) {
     const listItem = document.createElement('li');
     listItem.classList.add('letter');
@@ -29,7 +22,6 @@ function randomWord() {
   }
 }
 
-// Displays an notification sliding from the bottom
 function displayNotification() {
   notification.classList.add('visible');
 
@@ -38,7 +30,6 @@ function displayNotification() {
   }, 2400);
 }
 
-// Update the figure when invalid letters typed
 function updateFigure() {
   try {
     bodyParts[invalidCount].style.display = 'block';
@@ -46,30 +37,26 @@ function updateFigure() {
   } catch (error) {}
 }
 
-// When player wins
 function playerWins() {
   setTimeout(() => {
     popup.classList.add('visible');
     finalMessage.classList.add('visible');
-    message.textContent = 'Hurrah! You won.';
+    message.textContent = 'Que bien! has Ganado.';
   }, 400);
 }
 
-// When player looses
 function playerLose() {
   setTimeout(() => {
     popup.classList.add('visible');
     finalMessage.classList.add('visible');
-    message.textContent = `Oops! You lost. The right word is "${selectedWord}"`;
+    message.textContent = `Ups! Perdiste. La palabra es "${selectedWord}"`;
   }, 400);
 }
 
-// Check if typed key is part of the selected word and update in the DOM if required
 function check(ok) {
   const letterElements = document.querySelectorAll('.word .letter');
   const character = ok.key;
 
-  // Handle keyboard okents
   if (!popup.classList.contains('visible') && !notification.classList.contains('visible') && ok.keyCode >= 65 && ok.keyCode <= 90) {
     if (selectedWord.includes(character)) {
       if (validLetters.includes(character)) {
@@ -100,24 +87,20 @@ function check(ok) {
     }
   }
 
-  // Create a word from all letter items
   let formedWord = '';
   letterElements.forEach((value) => {
     formedWord += value.textContent;
   });
 
-  // Check if created word is correct
   if (formedWord === selectedWord) {
     playerWins();
   }
 
-  // Check if man was hung
   if (invalidCount >= 6) {
     playerLose();
   }
 }
 
-// Reset all variables and start a new game
 function startNewGame() {
   selectedWord = null;
   invalidCount = 0;
@@ -136,6 +119,5 @@ function startNewGame() {
 // Start the game
 randomWord();
 
-// okent Listeners
 window.addEventListener('keyup', check);
 playButton.addEventListener('click', startNewGame);
