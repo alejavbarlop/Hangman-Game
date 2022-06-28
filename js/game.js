@@ -1,6 +1,7 @@
 var wordsList = ['ALURA', 'AHORCADO', 'ORACLE', 'HTML', 'CSS', 'JAVASCRIPT'];
-var secondContainer = document.querySelector('.second-container').style.display = 'none';
-var btnSection = document.querySelector('.btn-section3').style.display = 'none';
+var secondContainer = document.getElementById('second-container');
+var btnSection = document.getElementById('btn-section3');
+var textAdd = document.getElementById('add-text-section');
 const word = document.getElementById('word');
 const invalid = document.getElementById('invalid');
 const invalidLettersText = document.querySelector('#invalid p');
@@ -29,6 +30,9 @@ function saveWord() {
     newSecretWord = addWord.toUpperCase();
     wordsList.push(newSecretWord);
     console.log(wordsList);
+    document.getElementById('second-container').style.display = 'block'
+    document.getElementById('btn-section3').style.display = 'block'
+    document.getElementById('add-text-section').style.display = 'none'
   }
 
 function displayNotification() {
@@ -64,7 +68,7 @@ function playerLose() {
 
 function check(ok) {
   const letterElements = document.querySelectorAll('.word .letter');
-  const character = ok.key;
+  const character = ok.key.toUpperCase();
 
   if (!popup.classList.contains('visible') && !notification.classList.contains('visible') && ok.keyCode >= 65 && ok.keyCode <= 90) {
     if (selectedWord.includes(character)) {
