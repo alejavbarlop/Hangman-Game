@@ -1,4 +1,6 @@
 var wordsList = ['ALURA', 'AHORCADO', 'ORACLE', 'HTML', 'CSS', 'JAVASCRIPT'];
+var secondContainer = document.querySelector('.second-container').style.display = 'none';
+var btnSection = document.querySelector('.btn-section3').style.display = 'none';
 const word = document.getElementById('word');
 const invalid = document.getElementById('invalid');
 const invalidLettersText = document.querySelector('#invalid p');
@@ -21,6 +23,13 @@ function randomWord() {
     word.append(listItem);
   }
 }
+
+function saveWord() {
+    addWord = document.querySelector('#textInput').value;
+    newSecretWord = addWord.toUpperCase();
+    wordsList.push(newSecretWord);
+    console.log(wordsList);
+  }
 
 function displayNotification() {
   notification.classList.add('visible');
